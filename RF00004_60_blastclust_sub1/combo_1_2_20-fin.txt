@@ -1,0 +1,22 @@
+CLUSTAL 2.0.11 multiple sequence alignment
+
+
+lcl|AAIY01646536.1/2275-2477      AUCACUUCUUGGCCUUUUGGAUAAGAUCAAGUGUAGUAG----CUGUUCU
+lcl|AAGV01355555.1/450-257        AUUGCUUCUCAGCAUUUUGCCUAAGAUCAAGUGUAGUUAGUGUCUGUUCU
+                                  **  *****  ** *****  ****************      *******
+
+lcl|AAIY01646536.1/2275-2477      UAUCAGUUUAAUAUCUGAUACAUCCUCUAUCCUAGAACAAUAUAUUAAAU
+lcl|AAGV01355555.1/450-257        UAUCAGUUUAAUAUCUGAUAUGUCCUCUAUCCAAAGACAAUAUAUUAAAC
+                                  ********************  ********** *  ************* 
+
+lcl|AAIY01646536.1/2275-2477      GGAUUUUUGGAGCAGGGAGAUGGAGUAAGAGCUUGAGUAAGAGCUUGCUC
+lcl|AAGV01355555.1/450-257        UGAUUUUUGGAACUGGGAAAUGGAAUAGGGG------------CUUGCUC
+                                   ********** * **** ***** ** * *            *******
+
+lcl|AAIY01646536.1/2275-2477      UGUCCACUCCACGCAUUGACCUGGUAUUGCAGUACUUCCAGGAAAGGUGC
+lcl|AAGV01355555.1/450-257        UGUC-ACUCCACACAUUGACCCAGUAUUUCAGUACUUCCAAAAAUGGUUC
+                                  **** ******* ********  ***** ***********  ** *** *
+
+lcl|AAIY01646536.1/2275-2477      AUCCCUU
+lcl|AAGV01355555.1/450-257        ACUCCUC
+                                  *  *** 
