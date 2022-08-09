@@ -1,5 +1,15 @@
 #! /usr/bin/python
 
+###################################################################################################################################################
+#
+#
+#   rnaz_score.py - creates RNAz output file from a list of sequence alignments
+#   Input:      seq_file - the set of sequence alignments
+#   Output:     output of RNAz command in a single file
+#
+#
+###################################################################################################################################################
+
 import os
 
 # parameters for run
@@ -18,8 +28,3 @@ for line in open(root + seq_dir + "/" + seq_file):
 	score = "rnaz" + " " + root + seq_dir + "/" + line.rstrip() + " >> " + root + seq_dir + "/" + rnaz_file
 	print(score)
 	os.system(score)
-
-
-
-
-
