@@ -34,6 +34,8 @@ neg_path = root + seq_dir + "/" + neg_dir
 
 # os.mkdir(neg_path)
 
+print(",".join(["combo", "mfe"]))
+
 for file in open(root + seq_dir + "/" + seq_file):
     
 	# initialize arrays
@@ -67,6 +69,7 @@ for file in open(root + seq_dir + "/" + seq_file):
 
 	fasta_file = file.replace('-fin','-fasta')
 	mfe_file = file.replace('-fin', '-mfe')
+	combo = file.replace('-fin.txt', '')
 
 	fasta_file_handle = open(root + seq_dir + "/" + fasta_file, 'w')
 
@@ -87,7 +90,7 @@ for file in open(root + seq_dir + "/" + seq_file):
 			mfe = float(mfe.strip())
 			mfe_list.append(mfe)
 	mfe_mean = mean(mfe_list)
-	print(",".join([mfe_file, str(mfe_mean)]))
+	print(",".join([combo, str(mfe_mean)]))
 
 	for f1 in [root + seq_dir + "/" + fasta_file, root + seq_dir + "/" + mfe_file]:
 		os.remove(f1)
