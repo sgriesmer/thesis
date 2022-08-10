@@ -23,7 +23,7 @@ similarity_line_pattern = re.compile(r'^\s\*')
 sequence_line_pattern = re.compile(r'^[a-z]')
 mfe_line_pattern = re.compile(r'^[\.\(\)]* ')
 
-# open directory
+# files and directories for data
 
 seq_dir = "RF00004_60_blastclust_sub1"
 neg_dir = "z_score"
@@ -32,9 +32,11 @@ seq_file = "file2a.txt"
 root = "/home/azureuser/"
 neg_path = root + seq_dir + "/" + neg_dir
 
-# os.mkdir(neg_path)
+# header line
 
 print(",".join(["combo", "mfe"]))
+
+# read and parse CLUSTAL file
 
 for file in open(root + seq_dir + "/" + seq_file):
     
@@ -48,7 +50,7 @@ for file in open(root + seq_dir + "/" + seq_file):
 
 	file = file.strip()
 
-	# Read Clustal file
+	# Read Clustal file and store in dictionary
 
 	i = 0
 	for line in open(root + seq_dir + "/" + file):
@@ -67,9 +69,13 @@ for file in open(root + seq_dir + "/" + seq_file):
 				d[nm] = ""
 			d[nm] += sequence
 
+	# Create FASTA and MFE output files
+
 	fasta_file = file.replace('-fin','-fasta')
 	mfe_file = file.replace('-fin', '-mfe')
 	combo = file.replace('-fin.txt', '')
+
+	# Open FASTA file to write
 
 	fasta_file_handle = open(root + seq_dir + "/" + fasta_file, 'w')
 
@@ -77,8 +83,12 @@ for file in open(root + seq_dir + "/" + seq_file):
 		fasta_file_handle.write('>' + key +'\n')
 		fasta_file_handle.write(value + '\n')
 
+	# Execute RNAfold to find MFE scores
+
 	cmd = 'RNAfold ' + '< ' + root + seq_dir + "/" + file + ' >' + root + seq_dir + "/" + mfe_file
 	os.system(cmd)
+
+	# Parse scores and find the mean
 
 	mfe_list = []
 
@@ -90,7 +100,12 @@ for file in open(root + seq_dir + "/" + seq_file):
 			mfe = float(mfe.strip())
 			mfe_list.append(mfe)
 	mfe_mean = mean(mfe_list)
+
+	# Print the combination and mean for each alignment
+
 	print(",".join([combo, str(mfe_mean)]))
+
+	# Remove temporary FASTA and MFE files
 
 	for f1 in [root + seq_dir + "/" + fasta_file, root + seq_dir + "/" + mfe_file]:
 		os.remove(f1)
