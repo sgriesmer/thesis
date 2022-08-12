@@ -12,7 +12,7 @@ import re
 import math
 import os
 
-seq_file = "file4a.txt"
+seq_file = "file2-abbrev.txt"
 seq_dir = "RF00004_60_blastclust_sub1"
 root = "c:/sjg/2010/thesis/"
 sample_type = "positive"
@@ -31,17 +31,16 @@ for file in open(root + seq_dir + "/" + seq_file):
 # initialize sums
 	sum_shannon = 0
 	sum_dbp = 0
-	combo = re.sub(r'-fin','', file).strip()
-	rnaalifold_file = re.sub(r'-fin', '-alifold',file).strip()
+	combo = file.replace('-fin.txt','').strip()
 
 # run through rnaalifold
 
-	rnafold_cmd = "rnaalifold < " + root + seq_dir + "/" + file + " >" + root + seq_dir + "/" + rnaalifold_file
+	rnafold_cmd = "rnaalifold -p < " + root + seq_dir + "/" + file
 	rnafoldout = os.system(rnafold_cmd)
 
 # get alignment length and shannon and base pair distance
 
-	for line in open(root + seq_dir + "/" + rnaalifold_file):
+	for line in open(root + "alifold.out"):
      
 # get alignment length
 
